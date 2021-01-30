@@ -3,32 +3,29 @@ import { Loading, Empty, Failure, Success } from './BlogPostCell'
 import { standard } from './BlogPostCell.mock'
 
 describe('BlogPostCell', () => {
-  it('renders Loading successfully', () => {
+  test('Loading renders successfully', () => {
     expect(() => {
       render(<Loading />)
     }).not.toThrow()
   })
 
-  it('renders Empty successfully', async () => {
+  test('Empty renders successfully', async () => {
     expect(() => {
       render(<Empty />)
     }).not.toThrow()
   })
 
-  it('renders Failure successfully', async () => {
+  test('Failure renders successfully', async () => {
     expect(() => {
       render(<Failure error={new Error('Oh no')} />)
     }).not.toThrow()
   })
 
-  // When you're ready to test the actual output of your component render
-  // you could test that, for example, certain text is present:
-  //
-  //   expect(screen.getByText('Hello, world')).toBeInTheDocument()
+  test('Success renders successfully', async () => {
+    const post = standard().post
+    render(<Success post={post} />)
 
-  it('renders Success successfully', async () => {
-    expect(() => {
-      render(<Success blogPost={standard().blogPost} />)
-    }).not.toThrow()
+    expect(screen.getByText(post.title)).toBeInTheDocument()
+    expect(screen.getByText(post.body)).toBeInTheDocument()
   })
 })

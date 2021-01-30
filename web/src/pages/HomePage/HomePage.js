@@ -1,5 +1,4 @@
-import { Link, routes } from '@redwoodjs/router'
-import BlogLayout from 'src/layouts/BlogLayout/BlogLayout'
+import BlogLayout from 'src/layouts/BlogLayout'
 import BlogPostsCell from 'src/components/BlogPostsCell'
 
 const HomePage = () => {
