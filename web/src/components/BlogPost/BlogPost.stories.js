@@ -16,4 +16,13 @@ export const summary = () => {
   return <BlogPost post={POST} summary={true} />
 }
 
-export default { title: 'Components/BlogPost' }
+export default {
+  title: 'Components/BlogPost',
+  decorators: [
+    (Story) => (
+      <div className="m-8">
+        <Story />
+      </div>
+    ),
+  ],
+}
