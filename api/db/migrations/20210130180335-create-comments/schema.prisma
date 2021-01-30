@@ -1,17 +1,13 @@
 datasource DS {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  // optionally set multiple providers
+  // example: provider = ["sqlite", "postgresql"]
+  provider = "sqlite"
+  url = "***"
 }
 
-// datasource DS {
-//   provider = "sqlite"
-//   url      = env("TEST_DATABASE_URL")
-// }
-
 generator client {
-  provider        = "prisma-client-js"
-  binaryTargets   = "native"
-  previewFeatures = ["uncheckedScalarInputs"]
+  provider      = "prisma-client-js"
+  binaryTargets = "native"
 }
 
 model Post {
